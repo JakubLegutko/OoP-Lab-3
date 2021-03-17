@@ -32,12 +32,10 @@ namespace OoP_Lab_3
         }
         public void Work(double time)
         {
-            WorkTime += time;
-            if (WorkTime == 24)
-            {
-                equipment.GatherData();
-                WorkTime = 0;
-            }
+            for(double i = 0; i<time; i+=24)
+               Console.WriteLine(equipment.GatherData());
+                
+            
         }
     }
 }

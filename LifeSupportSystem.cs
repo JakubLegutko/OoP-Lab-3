@@ -21,9 +21,13 @@ namespace OoP_Lab_3
 
         public bool CheckSuppliesBeforeTravel(double travelTime)
         {
-            if (oxygenBottles.Count < crew.Count) return false;
-            else if (FoodContainer.Volume < (crew.Count / 3)) return false;
-            else if (waste.Volume > 10) return false;
+            double TempTotalOxygen = 0; 
+            for (int i = 0; i < oxygenBottles.Count; i++) 
+                TempTotalOxygen += oxygenBottles[i].Volume;
+
+            if ( TempTotalOxygen < (crew.Count/100)*travelTime) return false;
+             if (FoodContainer.Volume < (crew.Count / 30)) return false;
+            else if (waste.Volume > 100) return false;
             else if (travelTime > 1000) return false;
             else if (oxygenBottles.Count < 1) return false;
             else if (FoodContainer.Volume < 1) return false;
@@ -35,7 +39,10 @@ namespace OoP_Lab_3
             {
                 waste.Volume += 1;
                 FoodContainer.Volume -= 2;
-                oxygenBottles.RemoveAt(oxygenBottles.Count);
+                for(int j = 0;j<oxygenBottles.Count;j++)
+                {
+                    oxygenBottles[j].Volume -= 100;
+                }
             }
 
         }

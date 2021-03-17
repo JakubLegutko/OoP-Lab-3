@@ -14,7 +14,7 @@ namespace OoP_Lab_3
             set
             {
                 volume = value;
-                weight = value * 12.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
+                weight = value * 2.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
             }
         }
         public double Weight
@@ -23,7 +23,7 @@ namespace OoP_Lab_3
             set
             {
                 weight = value;
-                volume = value / 22.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
+                volume = value / 2.0; // assume density equal to 7000 kg/m^3 (arbitrary number)
             }
         }
 
@@ -39,13 +39,13 @@ namespace OoP_Lab_3
 
         public double GetVelocity(double submarineWeight)
         {
-            return 100 / submarineWeight;
+            return 2500000 / submarineWeight;
 
         }
 
         public bool CheckFuelBeforeTravel(double travelTime)
         {
-            if (travelTime == Tank.Volume)
+            if (travelTime < Tank.Volume)
                 return true;
             else return false;
         }
